@@ -33,7 +33,7 @@ def process_image():
     image_key = 'uploads/' + image.filename
     s3.upload_fileobj(image, os.environ.get('S3_BUCKET_NAME'), image_key)
 
-    rekognition
+    
     resized_image = rekognition.detect_faces(
         Image={'S3Object': {'Bucket': os.environ.get('S3_BUCKET_NAME'), 'Name': image_key}},
         Attributes=['ALL']
